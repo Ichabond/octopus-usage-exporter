@@ -1,0 +1,41 @@
+[project]
+name = "octopus-usage-exporter"
+version = "0.1.2"
+authors = [{name="Joseph Ryan-Palmer"}, {name="Tom Strickx", email="github@ecmp.network"}]
+description = "A Prometheus metrics exporter for Octopus Energy usage data"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Monitoring",
+]
+keywords = ["octopus", "energy", "prometheus", "metrics", "monitoring"]
+dependencies = [
+    "click>=8.0.0",
+    "gql==3.4.1",
+    "httpx==0.25.1",
+    "prometheus_client==0.22.1",
+    "python_jose==3.3.0",
+    "requests==2.32.4",
+    "requests_toolbelt==1.0.0"
+]
+
+[project.scripts]
+octopus-usage-exporter = "octopus_usage_exporter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Ichabond/octopus-usage-exporter"
+Repository = "https://github.com/Ichabond/octopus-usage-exporter"
+Issues = "https://github.com/Ichabond/octopus-usage-exporter/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]  # list of folders that contain the packages (["src"] by default)
+include = ["octopus_usage_exporter*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["tests*"]  # exclude packages matching these glob patterns
